@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react"
 import "./Cronometro.css"
 
-
 function Cronometro() {
-
     const [tempo, setTempo] = useState(0) // tempo está começando em 0
     const [executando, setExecutando] = useState(false) // O cronometro começa parado por isso ele esta como falso
 
@@ -42,6 +40,5 @@ function Cronometro() {
         </>
     )
 }
-
 
 export default Cronometro 
