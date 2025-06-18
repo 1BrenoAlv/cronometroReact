@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import "./Cronometro.css"
 
+
 function Cronometro() {
+
     const [tempo, setTempo] = useState(0) // tempo está começando em 0
     const [executando, setExecutando] = useState(false) // O cronometro começa parado por isso ele esta como falso
 
     useEffect(() => {
+
         let intervalo
         if (executando) {
             intervalo = setInterval(() => {
@@ -15,7 +18,9 @@ function Cronometro() {
             clearInterval(intervalo) // limpa o contador
         }
         return () => clearInterval(intervalo) // essa função tem a função de limpar o cronometro caso aconteça algo
+
     }, [executando])
+
     return (
         <>
             <div className="containerMainCronometro">
@@ -23,7 +28,7 @@ function Cronometro() {
                 <div className="cronometro">
                     <span className="cronometoSaida" >{("0" + Math.floor((tempo / 60000) % 60)).slice(-2)}:</span>
                     <span className="cronometoSaida" >{("0" + Math.floor((tempo / 1000) % 60)).slice(-2)}:</span>
-                    <span className="cronometoSaida" >{("0" + ((tempo / 10) % 100)).slice(-2)}</span>
+                    <span className="cronometoSaidaMilissegundo" >{("0" + ((tempo / 10) % 100)).slice(-2)}</span>
                 </div>
                 <div className="divBotoesCronometro">
                     {executando ? (
@@ -38,4 +43,5 @@ function Cronometro() {
     )
 }
 
-export default Cronometro
+
+export default Cronometro 
